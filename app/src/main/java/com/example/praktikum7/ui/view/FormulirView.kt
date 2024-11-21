@@ -93,6 +93,20 @@ fun FormulirView(
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
 
+        //Tambahan
+        TextField(
+            value = nim,
+            onValueChange = {nim = it},
+            label = {
+                Text(text = "NIM")
+            },
+            placeholder = {
+                Text(text = "Isi Nomor Induk Mahasiswa Anda")
+            },
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+        )
+
 
 
         Button(onClick = {
