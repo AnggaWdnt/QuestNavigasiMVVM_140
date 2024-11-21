@@ -30,11 +30,11 @@ fun Navigasi(
     modifier: Modifier = Modifier,
     viewModel: SiswaViewModel = viewModel(),
     navHost: NavHostController = rememberNavController()
-){
-
+) {
+    Scaffold { isipadding ->
         val uiState by viewModel.statusUI.collectAsState()
         NavHost(
-
+            modifier = modifier.padding(isipadding),
             navController = navHost, startDestination = Halaman.FORMULIR.name
         ) {
             composable(route = Halaman.FORMULIR.name) {
@@ -42,8 +42,8 @@ fun Navigasi(
                 FormulirView(
 
 
-                    listJK = JenisKelamin.map {
-                            id -> konteks.getString(id)
+                    listJK = JenisKelamin.map { id ->
+                        konteks.getString(id)
                     },
                     onSubmitClicked = {
                         viewModel.setDataSiswa(it)
@@ -51,7 +51,7 @@ fun Navigasi(
                     }
                 )
             }
-            composable(route = Halaman.TAMPILDATA.name){
+            composable(route = Halaman.TAMPILDATA.name) {
                 TampilDataView(
                     uiState = uiState,
                     onBackButton = {
@@ -61,3 +61,4 @@ fun Navigasi(
             }
         }
     }
+}
